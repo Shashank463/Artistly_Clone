@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
@@ -20,7 +20,7 @@ export default function OnboardForm() {
   const {
     register,
     handleSubmit,
-    control,
+    // control,
     reset,
     formState: { errors },
   } = useForm({
@@ -31,8 +31,8 @@ export default function OnboardForm() {
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log('Submitted Artist:', data);
+  const onSubmit = () => {
+    console.log('Submitted Artist:');
     alert('Form submitted! Check console for data.');
     reset();
   };
@@ -114,7 +114,6 @@ export default function OnboardForm() {
         <div>
           <input
             type="file"
-            {...register('profileImage')}
             className="w-full"
           />
         </div>
